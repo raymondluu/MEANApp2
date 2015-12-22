@@ -1,0 +1,20 @@
+<h1>Survey Poll</h1>
+<a ng-href='#/dashboard'><button>Go to Polls</button></a>
+<h4>{{poll.question}}</h4>
+<p>Click the Vote button to choose one</p>
+<table>
+	<thead>
+		<tr>
+			<td>Option</td>
+			<td>Current Count of Votes</td>
+			<td>Action</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='option in poll.options'>
+			<td>{{option.option}}</td>
+			<td>{{option.votes}}</td>
+			<td><button ng-click='makeVote(poll, option)'>Vote</button></td>
+		</tr>
+	</tbody>
+</table>

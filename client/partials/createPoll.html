@@ -1,0 +1,47 @@
+<h1>Create Poll</h1>
+<a ng-href='#/dashboard'><button>Cancel</button></a>
+<h4>Put the question and options here:</h4>
+<form name='myForm'>
+	<p>
+		<span>Question:</span>
+		<input name='question' type='text' ng-model='input.question' ng-minlength='8' required></input>
+	</p>
+	<p>
+		<span>Option 1:</span>
+		<input name='optionOne' type='text' ng-model='input.optionOneString' ng-minlength='3' required></input>
+	</p>
+	<p>
+		<span>Option 2:</span>
+		<input name='optionTwo' type='text' ng-model='input.optionTwoString' ng-minlength='3' required></input>
+	</p>
+	<p>
+		<span>Option 3:</span>
+		<input name='optionThree' type='text' ng-model='input.optionThreeString' ng-minlength='3' required></input>
+	</p>
+	<p>
+		<span>Option 4:</span>
+		<input name='optionFour' type='text' ng-model='input.optionFourString' ng-minlength='3' required></input>
+	</p>
+</form>
+<button ng-click='addPoll()' ng-if='!myForm.question.$error.required && !myForm.question.$error.minlength && !myForm.optionOne.$error.required && !myForm.optionOne.$error.minlength && !myForm.optionTwo.$error.required && !myForm.optionTwo.$error.minlength && !myForm.optionThree.$error.required && !myForm.optionThree.$error.minlength && !myForm.optionFour.$error.required && !myForm.optionFour.$error.minlength'>Create Poll</button>
+
+<div ng-messages="myForm.question.$error" style="color:maroon" role="alert">
+    <div ng-message="required">Question required</div>
+    <div ng-message="minlength">Question needs to be at least 8 characters</div>
+</div>
+<div ng-messages="myForm.optionOne.$error" style="color:maroon" role="alert">
+    <div ng-message="required">Option 1 required</div>
+    <div ng-message="minlength">Option 1 needs to be at least 3 characters</div>
+</div>
+<div ng-messages="myForm.optionTwo.$error" style="color:maroon" role="alert">
+    <div ng-message="required">Option 2 required</div>
+    <div ng-message="minlength">Option 2 needs to be at least 3 characters</div>
+</div>
+<div ng-messages="myForm.optionThree.$error" style="color:maroon" role="alert">
+    <div ng-message="required">Option 3 required</div>
+    <div ng-message="minlength">Option 3 needs to be at least 3 characters</div>
+</div>
+<div ng-messages="myForm.optionFour.$error" style="color:maroon" role="alert">
+    <div ng-message="required">Option 4 required</div>
+    <div ng-message="minlength">Option 4 needs to be at least 3 characters</div>
+</div>

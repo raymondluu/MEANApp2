@@ -1,0 +1,25 @@
+<h1>List Polls</h1>
+<p>
+	<a ng-href='#/create'><button>Create a New Poll</button></a>
+	<a ng-href='#/'><button>Logout</button></a>
+</p>
+<h4>Current Polls:</h4>
+<input type='text' ng-model='searchFilter.question' placeholder='Search'></input>
+<table>
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td>Survey Question</td>
+			<td>Date Posted</td>
+			<td>Action</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='poll in polls | filter:searchFilter'>
+			<td>{{poll.user.name}}</td>
+			<td><a ng-href='#/poll/{{$index}}'>{{poll.question}}</a></td>
+			<td>{{poll.createdAt.toString().substring(4, 15)}}</td>
+			<td><button ng-click='deletePoll(poll)' ng-if='poll.user.name == user.name'>Delete</button></td>
+		</tr>
+	</tbody>
+</table>
